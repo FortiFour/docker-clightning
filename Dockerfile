@@ -77,6 +77,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git socat inoti
     libpq-dev libsodium-dev nodejs npm \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt update && apt install -y --no-install-recommends python3-dev python3-setuptools libffi-dev autoconf libtool make pkg-config automake && pip3 install wheel && pip3 install pyln.client requests
 
 COPY --from=builder /lib /lib
 COPY --from=builder /tmp/lightning_install/ /usr/local/
